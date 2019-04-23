@@ -8,7 +8,7 @@
 % Define Constants
 L = 0.5;        % in m
 g = 9.8;        % in m/s^2
-alpha = 0.5;    % in rad/s^2
+alpha = 0.9;    % in rad/s^2
 ICo = 0;        % observer initial condition
 
 wn = 0.8;       % nat frequency of secondOrderSys
@@ -120,22 +120,25 @@ figure(3)
 clf
 subplot(3,1,1)
 plot(tout, yout.signals(1).values', 'LineWidth', 2)
-title('Angular Position (rad)')
+title('Angular Position vs. Time')
 xlabel('Time (s)')
+ylabel('Angular Position (rad)')
 grid on
 
 subplot(3,1,2)
 plot(tout, yout.signals(2).values', 'LineWidth', 2)
-title('Cart Position (m)')
+title('Cart Position vs. Time')
 xlabel('Time (s)')
+ylabel('Cart Position (m)')
 grid on
 
 subplot(3,1,3)
 plot(tout, yout.signals(3).values', 'LineWidth', 2)
-title('Cart Acceleration (m/s^2)')
+title('Cart Acceleration vs. Time')
 xlabel('Time (s)')
+ylabel('Cart Acceleration (m/s^2)')
 grid on
-sgtitle({'Non-Linearized System'})
+sgtitle({'Non-Linearized Feedback Control System'})
 set(gcf, 'color', 'w')
 
 disp(' ') % nice printing space
