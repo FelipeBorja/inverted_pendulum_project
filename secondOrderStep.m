@@ -11,17 +11,17 @@ function [ p1, p2, respInfo ] = secondOrderStep( wn, z, plotStep )
     tcl = num/denom;
 
     if plotStep == 1
-        figure
+        figure(10)
         clf
         [y, t] = step(tcl);
         plot(t,y)
         xlabel('Time (s)')
         ylabel('Unit Step Response')
-        title(sprintf('Step Response with wn = %.2f, zeta = %.2f]',... 
+        title(sprintf('Step Response with wn = %.2f, zeta = %.2f',... 
             wn, z))
         grid on
     end
-    respInfo = stepinfo(tcl, 'SettlingTimeThreshold', 0.001);
+    respInfo = stepinfo(tcl, 'SettlingTimeThreshold', 0.01);
 
     %find the pole values, using quadratic formula
     a = 1;
